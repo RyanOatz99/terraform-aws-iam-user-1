@@ -117,10 +117,13 @@ Instructions on how to use this module to create/manage an IAM user.
       * if you want to **change user permissions**, change the `user-groups` variable, and run `terraform apply` again. 
       * if you want to **delete the user**, run `terraform destroy`. This command analyzes the state and determines what resources were previously created, and which must be destroyed.
       * finally, because of the two points above, **it is recommended to not add any user permissions manually**.
+
 6. Decrypt the password (if used on a CI/CD, use env. variables)
+      
       ```bash
       cat ./filename.txt | base64 --decode | keybase pgp decrypt
       ```
+
 7. At the first login, you will be required to change the password (unless the variable `pwd-reset` is overwritten).
 
 <hr/>
