@@ -21,6 +21,7 @@
 ## Input
 
 The following is the list of all input arguments:
+
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | **aws-profile** | The AWS account profile name. | string | - | yes |
