@@ -69,16 +69,21 @@ The following outputs are exported:
 Instructions on how to use this module to create/manage an IAM user.
 
 1. Create and navigate to a folder for the new user;
+    
     ```bash
     mkdir new-user && cd new-user
     ```
+    
 2. Create a `.tf` file and insert a reference to the module:
+    
     ```hcl
     module "new-user" {
       source = "path-to-this-module"
     }
     ```
+
 3. Complete it with the information of the user and the account:
+    
     ```hcl
     module "test-user" {
       source = "path-to-this-module"
@@ -90,18 +95,23 @@ Instructions on how to use this module to create/manage an IAM user.
       keybase-account = "rafaelmarques7"
     }
     ```
+
 4. Add output variable to retrieve the password:
+   
     ```hcl
     output "user-pwd-encrypted" {
       value = "${module.test-user.user-pwd-encrypted}"
     }
     ```
+
 5. Run the terraform script:
+    
     ```bash
     terraform init
     terraform plan  # optional - detects possible errors
     terraform apply --auto-approve=true
     ```
+    
     **Important Notes**: 
       * this will execute the script, and create the users. The information will be saved on the state file, which will be located on the repository just created. 
       * if you want to **change user permissions**, change the `user-groups` variable, and run `terraform apply` again. 
